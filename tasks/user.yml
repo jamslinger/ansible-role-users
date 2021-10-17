@@ -1,3 +1,4 @@
+---
 - name: "Add user '{{ user.username }}' to the system."
   user:
     name: "{{ user.username }}"

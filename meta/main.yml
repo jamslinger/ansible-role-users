@@ -17,8 +17,8 @@ galaxy_info:
   galaxy_tags:
     - user
     - group
-    - authorized_keys
-    - private_key
-    - ssh_key
+    - authorized
+    - private
     - ssh
+    - key
 dependencies: []
