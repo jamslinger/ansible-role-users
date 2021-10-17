@@ -1,0 +1,29 @@
+- name: "Add user '{{ user.username }}' to the system."
+  user:
+    name: "{{ user.username }}"
+    home: "{{ users_home_directory }}/{{ user.username }}"
+    group: "{{ user.group }}"
+    shell: "{{ users_shell_path }}"
+
+- name: Add user's .ssh directory.
+  file:
+    path: "{{ users_home_directory }}/{{ user.username }}/.ssh"
+    state: directory
+    mode: 0700
+    owner: "{{ user.username }}"
+    group: "{{ user.group }}"
+
+- name: Add user's authorized keys.
+  authorized_key:
+    key: "{{ user.authorized_keys | default([]) | join('\n') }}"
+    user: "{{ user.username }}"
+
+- name: Add user's private keys.
+  copy:
+    content: "{{ item.key }}\n"
+    dest: "{{ users_home_directory }}/{{ user.username }}/.ssh/{{ item.name }}"
+    mode: 0600
+    owner: "{{ user.username }}"
+    group: "{{ user.group }}"
+  with_items: "{{ user.ssh_private_keys | default([]) }}"
+  no_log: true

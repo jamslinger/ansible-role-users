@@ -1,0 +1,11 @@
+---
+users_shell_path: /bin/bash
+users_home_directory: /home
+users: []
+#  - username: ansible
+#    group: ansible
+#    authorized_keys:
+#      - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+#    ssh_private_keys:
+#      - name: id_gitlab
+#        key: "{{ lookup('file', '~/.ssh/id_gitlab') }}"

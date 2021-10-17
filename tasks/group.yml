@@ -1,0 +1,6 @@
+---
+- name: "Add group '{{ user.group }}' to the system"
+  group:
+    name: "{{ user.group }}"
+  loop: "{{ users }}"
+  no_log: true

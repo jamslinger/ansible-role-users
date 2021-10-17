@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: users
+  namespace: probosmo
+  author: probosmo
+  description: Add and configure users and groups
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+    - name: EL
+      versions:
+        - 7
+        - 8
+  galaxy_tags:
+    - user
+    - group
+    - authorized_keys
+    - private_key
+    - ssh_key
+    - ssh
+dependencies: []

@@ -1,0 +1,13 @@
+---
+- name: Configure groups.
+  include_tasks: group.yml
+  with_items: "{{ users }}"
+  loop_control:
+    loop_var: user
+  no_log: true
+- name: Configure users.
+  include_tasks: user.yml
+  with_items: "{{ users }}"
+  loop_control:
+    loop_var: user
+  no_log: true
